@@ -1,0 +1,39 @@
+2017-11-26 20:03:47.358 -03:00 [Debug] Using "Identity.Application" as default scheme for authentication
+2017-11-26 20:03:47.383 -03:00 [Debug] Using "Identity.External" as default scheme for sign-in
+2017-11-26 20:03:47.383 -03:00 [Debug] Using "Identity.External" as default scheme for sign-out
+2017-11-26 20:03:47.383 -03:00 [Debug] Using "Identity.Application" as default scheme for challenge
+2017-11-26 20:03:47.383 -03:00 [Debug] Using "Identity.Application" as default scheme for forbid
+2017-11-26 20:03:47.456 -03:00 [Debug] Starting token cleanup
+2017-11-26 20:03:47.727 -03:00 [Information] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed"
+2017-11-26 20:03:47.740 -03:00 [Information] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed"
+2017-11-26 20:03:51.833 -03:00 [Error] Failed executing DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [PersistedGrants] (
+    [Key] nvarchar(200) NOT NULL,
+    [ClientId] nvarchar(200) NOT NULL,
+    [CreationTime] datetime2 NOT NULL,
+    [Data] nvarchar(max) NOT NULL,
+    [Expiration] datetime2 NULL,
+    [SubjectId] nvarchar(200) NULL,
+    [Type] nvarchar(50) NOT NULL,
+    CONSTRAINT [PK_PersistedGrants] PRIMARY KEY ([Key])
+);"
+System.Data.SqlClient.SqlException (0x80131904): There is already an object named 'PersistedGrants' in the database.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+ClientConnectionId:7d32c0f6-2fd3-4510-8145-f8ba9adc24ff
+Error Number:2714,State:6,Class:16
+2017-11-26 20:03:52.102 -03:00 [Debug] Using "Identity.Application" as default scheme for authentication
+2017-11-26 20:03:52.103 -03:00 [Debug] Using "Identity.External" as default scheme for sign-in
+2017-11-26 20:03:52.103 -03:00 [Debug] Using "Identity.External" as default scheme for sign-out
+2017-11-26 20:03:52.103 -03:00 [Debug] Using "Identity.Application" as default scheme for challenge
+2017-11-26 20:03:52.103 -03:00 [Debug] Using "Identity.Application" as default scheme for forbid
+2017-11-26 20:03:52.213 -03:00 [Debug] Starting token cleanup
+2017-11-26 20:04:22.337 -03:00 [Information] Clearing 0 tokens
+2017-11-26 20:04:52.347 -03:00 [Information] Clearing 0 tokens
+2017-11-26 20:05:22.357 -03:00 [Information] Clearing 0 tokens
