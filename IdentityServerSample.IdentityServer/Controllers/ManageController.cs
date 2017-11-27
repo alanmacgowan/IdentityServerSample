@@ -495,7 +495,7 @@ namespace IdentityServerSample.IdentityServer.Controllers
         {
             return string.Format(
                 AuthenicatorUriFormat,
-                _urlEncoder.Encode("IdentityServerWithAspNetIdentity"),
+                _urlEncoder.Encode("IdentityServerSample.IdentityServer"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

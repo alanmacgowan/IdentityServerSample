@@ -5,20 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using IdentityServerSample.IdentityServer.Models;
-using IdentityServer4.Services;
-using IdentityServer4.Quickstart.UI;
 
 namespace IdentityServerSample.IdentityServer.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IIdentityServerInteractionService _interaction;
-
-        public HomeController(IIdentityServerInteractionService interaction)
-        {
-            _interaction = interaction;
-        }
-
         public IActionResult Index()
         {
             return View();
@@ -38,21 +29,9 @@ namespace IdentityServerSample.IdentityServer.Controllers
             return View();
         }
 
-        /// <summary>
-        /// Shows the error page
-        /// </summary>
-        public async Task<IActionResult> Error(string errorId)
+        public IActionResult Error()
         {
-            var vm = new ErrorViewModel();
-
-            // retrieve error details from identityserver
-            var message = await _interaction.GetErrorContextAsync(errorId);
-            if (message != null)
-            {
-                vm.Error = message;
-            }
-
-            return View("Error", vm);
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

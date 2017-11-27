@@ -11,15 +11,13 @@ using Microsoft.Extensions.DependencyInjection;
 using IdentityServerSample.IdentityServer.Data;
 using IdentityServerSample.IdentityServer.Models;
 using IdentityServerSample.IdentityServer.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Rewrite;
 using System.Reflection;
-using IdentityServer4.EntityFramework.Mappers;
-using IdentityServer4.EntityFramework.DbContexts;
-using IdentityServer4;
-using Microsoft.IdentityModel.Tokens;
-using System.IO;
-using System.Text.RegularExpressions;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
+using IdentityServer4.EntityFramework.DbContexts;
+using IdentityServer4.EntityFramework.Mappers;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace IdentityServerSample.IdentityServer
 {
@@ -45,7 +43,9 @@ namespace IdentityServerSample.IdentityServer
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
-            services.AddMvc();
+            services.AddMvc(options => {
+                options.Filters.Add(new RequireHttpsAttribute());
+            });
 
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
@@ -89,6 +89,10 @@ namespace IdentityServerSample.IdentityServer
             }
 
             app.UseStaticFiles();
+
+            app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, 44367));
+
+            //app.UseAuthentication();
 
             app.UseIdentityServer();
 

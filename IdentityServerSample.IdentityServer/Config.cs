@@ -1,7 +1,9 @@
 ﻿using IdentityServer4;
 using IdentityServer4.Models;
+using System;
 using System.Collections.Generic;
-using System.Security.Claims;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace IdentityServerSample.IdentityServer
 {
@@ -38,12 +40,12 @@ namespace IdentityServerSample.IdentityServer
                     ClientName = "MVC Client",
                     AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
                     RequireConsent = true,
-                    ClientSecrets = 
+                    ClientSecrets =
                     {
                         new Secret("secret".Sha256())
                     },
-                    RedirectUris = { "https://localhost:5001/signin-oidc" },
-                    PostLogoutRedirectUris = { "https://localhost:5001/signout-callback-oidc" },
+                    RedirectUris = { "https://localhost:44340/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:44340/signout-callback-oidc" },
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
@@ -55,4 +57,5 @@ namespace IdentityServerSample.IdentityServer
             };
         }
     }
+
 }

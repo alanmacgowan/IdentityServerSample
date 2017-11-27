@@ -8,9 +8,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Mvc;
 
 namespace IdentityServerSample.Api
 {
@@ -27,22 +24,6 @@ namespace IdentityServerSample.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            services.AddAuthentication()
-                    .AddJwtBearer(options =>
-                    {
-                        options.Authority = "https://localhost:5000";
-                        options.Audience = "api1";
-                        options.TokenValidationParameters.NameClaimType = "name";
-                    });
-
-            services.AddAuthorization(options =>
-            {
-                options.DefaultPolicy = new AuthorizationPolicyBuilder(JwtBearerDefaults.AuthenticationScheme)
-                    .RequireAuthenticatedUser()
-                    .Build();
-            });
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
