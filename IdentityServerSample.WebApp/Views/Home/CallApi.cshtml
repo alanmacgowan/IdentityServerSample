@@ -1,0 +1,22 @@
+﻿<div>
+    Logged in user: <strong>@User.Identity.Name</strong>
+</div>
+<br />
+<div>
+    @if (ViewBag.Error != null)
+    {
+        <text>@ViewBag.Error</text>
+    }
+    else
+    {
+        <text>Response from API: <strong>@ViewBag.ApiResponse</strong></text>
+    }
+</div>
+<br />
+<div>
+    Access token: @ViewBag.AccessToken
+</div>
+<br />
+<div>
+    Refresh token: @ViewBag.RefreshToken
+</div>
