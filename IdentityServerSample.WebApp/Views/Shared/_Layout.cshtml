@@ -34,7 +34,24 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
+                <ul class="nav nav-pills pull-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li role="presentation"><a href="/userinformation">User Information</a></li>
+                        <li role="presentation"><a asp-controller="Home" asp-action="CallApi">Call API</a></li>
+                        <li role="presentation" class="active">
+                            <form method="post" asp-controller="Auth" asp-action="SignOut">
+                                <button type="submit" class="btn btn-primary">Sign Out</button>
+                            </form>
+                        </li>
+                    }
+                    else
+                    {
+                        <li role="presentation" class="active"><a asp-controller="Auth" asp-action="SignIn">Sign In</a></li>
+                    }
+                </ul>
             </div>
+
         </div>
     </nav>
     <div class="container body-content">

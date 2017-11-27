@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerSample.WebApp", "IdentityServerSample.WebApp\IdentityServerSample.WebApp.csproj", "{2696D311-45A1-4BF7-BB3F-B88E67F7D9DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerSample.Api", "..\IdentityServerSample.Api\IdentityServerSample.Api.csproj", "{3A38D14A-1807-45D0-9C96-E99CB773134F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerSample.Api", "IdentityServerSample.Api\IdentityServerSample.Api.csproj", "{3A38D14A-1807-45D0-9C96-E99CB773134F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.IdentityServer", "..\IdentityServerSample.IdentityServer\IdentityServerSample.IdentityServer.csproj", "{777EDA07-2B7D-442D-9CEC-128AB8085F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.IdentityServer", "IdentityServerSample.IdentityServer\IdentityServerSample.IdentityServer.csproj", "{777EDA07-2B7D-442D-9CEC-128AB8085F40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
