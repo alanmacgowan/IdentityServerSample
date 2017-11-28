@@ -23,7 +23,7 @@ namespace IdentityServerSample.IdentityServer
         {
             return new List<ApiResource>
             {
-                new ApiResource("api1", "My API")
+                new ApiResource("api1", "My API", new [] { "name" })
             };
         }
 
