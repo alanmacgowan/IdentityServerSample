@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using IdentityServerSample.Domain;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using IdentityServerSample.IdentityServer.Models;
-using Microsoft.AspNetCore.Identity;
+using System;
 
-namespace IdentityServerSample.IdentityServer.Data
+namespace IdentityServerSample.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {

@@ -20,4 +20,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IdentityServerSample.Data\IdentityServerSample.Data.csproj" />
+    <ProjectReference Include="..\IdentityServerSample.Domain\IdentityServerSample.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
