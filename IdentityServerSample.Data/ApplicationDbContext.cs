@@ -25,5 +25,8 @@ namespace IdentityServerSample.Data
             builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
             builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens").HasKey(u => new { u.LoginProvider, u.UserId });
         }
+
+        public DbSet<Book> Books { get; set; }
+
     }
 }

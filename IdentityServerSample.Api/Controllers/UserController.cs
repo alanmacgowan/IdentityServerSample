@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using IdentityServerSample.Data;
 
 namespace IdentityServerSample.Api.Controllers
 {
@@ -11,6 +12,7 @@ namespace IdentityServerSample.Api.Controllers
     [Route("api")]
     public class UserController : Controller
     {
+
         [Route("text/welcome")]
         [Authorize]
         public IActionResult GetWelcomeText()
@@ -24,6 +26,9 @@ namespace IdentityServerSample.Api.Controllers
         {
             return Content("User: " + User.Identity.Name);
         }
+
+
+
     }
 
 }

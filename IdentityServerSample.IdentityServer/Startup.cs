@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Linq;
 using System.Reflection;
 
@@ -149,6 +150,23 @@ namespace IdentityServerSample.IdentityServer
                         configDbContext.ApiResources.Add(resource.ToEntity());
                     }
                     configDbContext.SaveChanges();
+                }
+
+                if (!appDbContext.Books.Any())
+                {
+                    var books = new Book[]
+{
+                    new Book{Title="Book 1",Description = "This is Book number 1",PublishDate=DateTime.Parse("2005-09-01"), ISBN = "1289189218291", Category = "Comedy", Price = 44, Pages = 111,Language="Spanish"  },
+                    new Book{Title="Book 2",Description = "This is Book number 2",PublishDate=DateTime.Parse("2017-05-04"), ISBN = "2222222222622", Category = "Drama", Price = 33, Pages = 222,Language="English" },
+                    new Book{Title="Book 3",Description = "This is Book number 3",PublishDate=DateTime.Parse("2017-04-03"), ISBN = "3232323222533", Category = "Travel", Price = 23, Pages = 223,Language="Spanish" },
+                    new Book{Title="Book 4",Description = "This is Book number 4",PublishDate=DateTime.Parse("2016-12-12"), ISBN = "7676676767676", Category = "History", Price = 233, Pages = 422,Language="Portuguese" },
+                    new Book{Title="Book 5",Description = "This is Book number 5",PublishDate=DateTime.Parse("2015-11-12"), ISBN = "4545454555555", Category = "Comedy", Price = 37, Pages = 123,Language="Spanish" },
+};
+                    foreach (Book s in books)
+                    {
+                        appDbContext.Books.Add(s);
+                    }
+                    appDbContext.SaveChanges();
                 }
             }
         }

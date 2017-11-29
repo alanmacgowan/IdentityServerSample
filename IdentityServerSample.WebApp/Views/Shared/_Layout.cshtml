@@ -35,6 +35,7 @@
                 <ul class="nav nav-pills pull-right">
                     @if (User.Identity.IsAuthenticated)
                     {
+                        <li role="presentation"><a asp-controller="Home" asp-action="GetBooks">Books</a></li>
                         <li role="presentation"><a href="/userinformation">User Information</a></li>
                         <li role="presentation"><a asp-controller="Home" asp-action="CallApi">Call API</a></li>
                         <li role="presentation" class="active">

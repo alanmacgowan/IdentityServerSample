@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Net.Http;
 using Microsoft.AspNetCore.Authorization;
 using IdentityModel.Client;
+using Newtonsoft.Json.Linq;
 
 namespace IdentityServerSample.WebApp.Controllers
 {
@@ -65,6 +66,31 @@ namespace IdentityServerSample.WebApp.Controllers
             ViewBag.AccessToken = accessToken;
             ViewBag.RefreshToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
             return View();
+        }
+
+        public async Task<IActionResult> GetBooks()
+        {
+            string accessToken;
+            try
+            {
+                accessToken = await GetAccessToken();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.GetBaseException().Message;
+                return View();
+            }
+
+            var client = new HttpClient();
+            client.SetBearerToken(accessToken);
+
+            var content = await client.GetStringAsync("https://localhost:44374/api/book/getbooks");
+            ViewBag.ApiResponse = content;
+
+            ViewBag.AccessToken = accessToken;
+            ViewBag.RefreshToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
+            ViewBag.Json = JArray.Parse(content).ToString();
+            return View("Books");
         }
 
         private async Task<string> GetAccessToken()
