@@ -1,7 +1,7 @@
 # IdentityServerSample
 Sample ASP.NET Core  MVC app and API using Identity Server 4 and Entity Framework to store Identity tables (Users, Roles, UserRoles, UserClaims, UserLogins, etc) and Identity Server tables (Clients, ClientSecrets, PersistedGrants, IdentityResources, ApiResources, etc)
 
-### Quick start
+## Quick start
 
 Just run F5, this will start the Identity Server on https://localhost:44367/, API on https://localhost:44374/ and Web App on https://localhost:44340/. <br/>
 Firts run will initialize the database IdentityServerSample with all the tables and some sample data and Identity Server configuration data.<br/>
