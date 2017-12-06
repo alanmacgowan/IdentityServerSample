@@ -1,5 +1,6 @@
 ﻿using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
+using IdentityServer4.Quickstart.UI;
 using IdentityServerSample.Data;
 using IdentityServerSample.Domain;
 using IdentityServerSample.IdentityServer.Services;
@@ -45,7 +46,7 @@ namespace IdentityServerSample.IdentityServer
                 options.Filters.Add(new RequireHttpsAttribute());
             });
 
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            string connectionString = Configuration.GetConnectionString("IdentityServerConnection");
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             services.AddIdentityServer()
@@ -53,16 +54,11 @@ namespace IdentityServerSample.IdentityServer
                 .AddAspNetIdentity<ApplicationUser>()
                 .AddConfigurationStore(options =>
                 {
-                    options.ConfigureDbContext = builder =>
-                        builder.UseSqlServer(connectionString,
-                            sql => sql.MigrationsAssembly(migrationsAssembly));
+                    options.ConfigureDbContext = builder => builder.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                 })
                 .AddOperationalStore(options =>
                 {
-                    options.ConfigureDbContext = builder =>
-                        builder.UseSqlServer(connectionString,
-                            sql => sql.MigrationsAssembly(migrationsAssembly));
-
+                    options.ConfigureDbContext = builder => builder.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
                     options.TokenCleanupInterval = 30;
@@ -91,6 +87,7 @@ namespace IdentityServerSample.IdentityServer
             app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, 44367));
 
             //app.UseAuthentication();
+            AccountOptions.AutomaticRedirectAfterSignOut = true;
 
             app.UseIdentityServer();
 
@@ -110,14 +107,15 @@ namespace IdentityServerSample.IdentityServer
                 appDbContext.Database.EnsureCreated();
 
                 var grantDbContext = serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>();
-                var grantDbCreator = (RelationalDatabaseCreator)grantDbContext.Database.GetService<IDatabaseCreator>();
+                grantDbContext.Database.EnsureCreated();
+                //var grantDbCreator = (RelationalDatabaseCreator)grantDbContext.Database.GetService<IDatabaseCreator>();
 
                 var configDbContext = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
                 var configDbCreator = (RelationalDatabaseCreator)configDbContext.Database.GetService<IDatabaseCreator>();
 
                 try
                 {
-                    grantDbCreator.CreateTables();
+                    //grantDbCreator.CreateTables();
                     configDbCreator.CreateTables();
                 }
                 catch

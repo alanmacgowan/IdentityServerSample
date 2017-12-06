@@ -37,10 +37,7 @@ namespace IdentityServerSample.IdentityServer
                     ClientName = "MVC Client",
                     AllowedGrantTypes = GrantTypes.HybridAndClientCredentials,
                     RequireConsent = true,
-                    ClientSecrets =
-                    {
-                        new Secret("secret".Sha256())
-                    },
+                    ClientSecrets = { new Secret("secret".Sha256()) },
                     RedirectUris = { "https://localhost:44340/signin-oidc" },
                     PostLogoutRedirectUris = { "https://localhost:44340/signout-callback-oidc" },
                     AllowedScopes =
