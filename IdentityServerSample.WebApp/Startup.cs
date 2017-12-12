@@ -26,8 +26,8 @@ namespace IdentityServerSample.WebApp
                 options.Filters.Add(new RequireHttpsAttribute());
             });
 
-            
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+            //JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(options =>
             {
@@ -48,8 +48,6 @@ namespace IdentityServerSample.WebApp
                     options.Scope.Add("offline_access");
                     options.TokenValidationParameters.NameClaimType = "name";
                 });
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

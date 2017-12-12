@@ -33,6 +33,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                 </ul>
                 <ul class="nav nav-pills pull-right">
+                    <li role="presentation"><a asp-controller="Home" asp-action="Spa">SPA</a></li>
                     @if (User.Identity.IsAuthenticated)
                     {
                         <li role="presentation"><a asp-controller="Home" asp-action="GetBooks">Books</a></li>

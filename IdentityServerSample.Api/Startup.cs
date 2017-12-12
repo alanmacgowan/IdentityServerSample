@@ -46,6 +46,14 @@ namespace IdentityServerSample.Api
                     .Build();
             });
 
+            services.AddCors(options => {
+                options.AddPolicy("SPA", policy => {
+                    policy.WithOrigins("https://localhost:44340")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +63,8 @@ namespace IdentityServerSample.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("SPA");
 
             app.UseMvc();
         }

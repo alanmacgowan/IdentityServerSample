@@ -68,6 +68,7 @@ namespace IdentityServerSample.WebApp.Controllers
             return View();
         }
 
+        [Authorize]
         public async Task<IActionResult> GetBooks()
         {
             string accessToken;
@@ -91,6 +92,12 @@ namespace IdentityServerSample.WebApp.Controllers
             ViewBag.RefreshToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.RefreshToken);
             ViewBag.Json = JArray.Parse(content).ToString();
             return View("Books");
+        }
+
+        [Route("spa")]
+        public IActionResult Spa()
+        {
+            return View();
         }
 
         private async Task<string> GetAccessToken()

@@ -1,9 +1,11 @@
-﻿using IdentityServer4.EntityFramework.DbContexts;
+﻿using IdentityServer4;
+using IdentityServer4.EntityFramework.DbContexts;
 using IdentityServer4.EntityFramework.Mappers;
 using IdentityServer4.Quickstart.UI;
 using IdentityServerSample.Data;
 using IdentityServerSample.Domain;
 using IdentityServerSample.IdentityServer.Services;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -64,6 +66,14 @@ namespace IdentityServerSample.IdentityServer
                     options.TokenCleanupInterval = 30;
                 });
 
+
+            //services.AddAuthentication().AddGoogle("Google", options =>
+            //{
+            //    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+            //    options.ClientId = "122287826575-hgj176evda0la8u8ei21egle7q9m900t.apps.googleusercontent.com";
+            //    options.ClientSecret = "2LHCFMF8RFoyHFiU9nmNzg4b";
+            //});
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -86,7 +96,7 @@ namespace IdentityServerSample.IdentityServer
 
             app.UseRewriter(new RewriteOptions().AddRedirectToHttps(301, 44367));
 
-            //app.UseAuthentication();
+            AccountOptions.ShowLogoutPrompt = false;
             AccountOptions.AutomaticRedirectAfterSignOut = true;
 
             app.UseIdentityServer();
@@ -108,14 +118,12 @@ namespace IdentityServerSample.IdentityServer
 
                 var grantDbContext = serviceScope.ServiceProvider.GetRequiredService<PersistedGrantDbContext>();
                 grantDbContext.Database.EnsureCreated();
-                //var grantDbCreator = (RelationalDatabaseCreator)grantDbContext.Database.GetService<IDatabaseCreator>();
 
                 var configDbContext = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
                 var configDbCreator = (RelationalDatabaseCreator)configDbContext.Database.GetService<IDatabaseCreator>();
 
                 try
                 {
-                    //grantDbCreator.CreateTables();
                     configDbCreator.CreateTables();
                 }
                 catch

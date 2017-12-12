@@ -47,6 +47,22 @@ namespace IdentityServerSample.IdentityServer
                         "api1"
                     },
                     AllowOfflineAccess = true
+                },
+                new Client
+                {
+                    ClientId = "Spa",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    },
+                    RedirectUris = { "https://localhost:44340/SignInCallback.html" },
+                    PostLogoutRedirectUris = { "https://localhost:44340/SignOutCallback.html" },
+                    AllowedCorsOrigins = { "https://localhost:44340" },
+                    RequireConsent = false
                 }
             };
         }
