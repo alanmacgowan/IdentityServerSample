@@ -1,8 +1,12 @@
-﻿using IdentityServerSample.Domain;
+﻿using IdentityServer4.Quickstart.UI;
+using IdentityServer4.Services;
+using IdentityServer4.Stores;
+using IdentityServerSample.Domain;
 using IdentityServerSample.IdentityServer.Models.AccountViewModels;
 using IdentityServerSample.IdentityServer.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,17 +24,23 @@ namespace IdentityServerSample.IdentityServer.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly AccountService _account;
+        private readonly IIdentityServerInteractionService _interaction;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            IIdentityServerInteractionService interaction,
+            IClientStore clientStore,
+            IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            _account = new AccountService(interaction, httpContextAccessor, clientStore);
         }
 
         [TempData]
@@ -244,6 +254,65 @@ namespace IdentityServerSample.IdentityServer.Controllers
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
             return RedirectToAction(nameof(HomeController.Index), "Home");
+        }
+
+        ///// <summary>
+        ///// Show logout page
+        ///// </summary>
+        //[HttpGet]
+        //public async Task<IActionResult> Logout(string logoutId)
+        //{
+        //    await _signInManager.SignOutAsync();
+        //    _logger.LogInformation("User logged out.");
+        //    return View("LoggedOut");
+        //}
+
+        /// <summary>
+        /// Show logout page
+        /// </summary>
+        [HttpGet]
+        public async Task<IActionResult> Logout(string logoutId)
+        {
+            var vm = await _account.BuildLogoutViewModelAsync(logoutId);
+
+            if (vm.ShowLogoutPrompt == false)
+            {
+                // no need to show prompt
+                return await Logout(vm);
+            }
+
+            return View(vm);
+        }
+
+        /// <summary>
+        /// Handle logout page postback
+        /// </summary>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout(LogoutInputModel model)
+        {
+            var vm = await _account.BuildLoggedOutViewModelAsync(model.LogoutId);
+            if (vm.TriggerExternalSignout)
+            {
+                string url = Url.Action("Logout", new { logoutId = vm.LogoutId });
+                try
+                {
+                    // hack: try/catch to handle social providers that throw
+                    await HttpContext.SignOutAsync(vm.ExternalAuthenticationScheme,
+                        new AuthenticationProperties { RedirectUri = url });
+                }
+                catch (NotSupportedException) // this is for the external providers that don't have signout
+                {
+                }
+                catch (InvalidOperationException) // this is for Windows/Negotiate
+                {
+                }
+            }
+
+            // delete local authentication cookie
+            await HttpContext.SignOutAsync();
+
+            return View("LoggedOut", vm);
         }
 
         [HttpPost]
