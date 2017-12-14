@@ -17,6 +17,7 @@ Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's
 * User Authentication with 3rd party provider (Google)
 * Call API from C# 
 * Call API from javascript 
+* Long lived API access using refresh tokens (allow requesting new access tokens without user interaction)
 
 ## Steps
 
