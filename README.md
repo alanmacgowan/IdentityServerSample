@@ -13,7 +13,7 @@ Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's
 ## Scenarios Covered
 
 * User Authentication
-* User Authentication pop-up (javascript)
+* User Authentication from javascript (oidc-client.js)
 * User Authentication with 3rd party provider (Google)
 * Call API from C# 
 * Call API from javascript 
