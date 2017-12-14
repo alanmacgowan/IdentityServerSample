@@ -7,6 +7,9 @@ Just run F5, this will start the Identity Server on https://localhost:44367/, AP
 First run will initialize the database IdentityServerSample with all the tables and some sample data and Identity Server configuration data.<br/>
 Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's first time, accept consent and once logged in can access API resources.<br/>
 
+## Diagram
+<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/master/identityserverdiag.jpg" />
+
 ## Scenarios Covered
 
 * User Authentication
@@ -51,11 +54,7 @@ Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's
     a. AddAuthentication
           AddJwtBearer
     b. AddAuthorization
-    c. AddCors
-    
-          
+    c. AddCors     
           
 ```
 
-## Diagram
-<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/master/identityserverdiag.jpg" />
