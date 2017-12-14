@@ -67,12 +67,12 @@ namespace IdentityServerSample.IdentityServer
                 });
 
 
-            //services.AddAuthentication().AddGoogle("Google", options =>
-            //{
-            //    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-            //    options.ClientId = "122287826575-hgj176evda0la8u8ei21egle7q9m900t.apps.googleusercontent.com";
-            //    options.ClientSecret = "2LHCFMF8RFoyHFiU9nmNzg4b";
-            //});
+            services.AddAuthentication().AddGoogle("Google", options =>
+            {
+                options.SignInScheme = IdentityConstants.ExternalScheme;
+                options.ClientId = "122287826575-hgj176evda0la8u8ei21egle7q9m900t.apps.googleusercontent.com";
+                options.ClientSecret = "2LHCFMF8RFoyHFiU9nmNzg4b";
+            });
 
         }
 
