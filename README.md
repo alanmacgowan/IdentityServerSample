@@ -8,4 +8,53 @@ First run will initialize the database IdentityServerSample with all the tables 
 Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's first time, accept consent and once logged in can access API resources.<br/>
 
 ## Diagram
-<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/master/identityserverdiag.jpg" />
+<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/master/identityserverdiagram.jpg" />
+
+## Scenarios Covered
+
+* User Authentication
+* User Authentication pop-up (javascript)
+* User Authentication with 3rd party provider (Google)
+* Call API from C# 
+* Call API from javascript 
+
+## Steps
+
+```
+1 - IdentityServer config:
+
+(Config.cs)
+    a. Clients:
+        i.  MVC application (HybridClientCredentials) ["mvc"]
+        ii. SPA application (Implicit) ["Spa"]
+    b. Resources:
+        i.  Identity (OpenId, Profile)
+        ii. Api ["api1"]
+
+(Startup.cs)
+    a. AddIdentity
+    b. AddIdentityServer
+          AddDeveloperSigningCredential
+          AddAspNetIdentity
+          AddConfigurationStore
+          AddOperationalStore
+    c. AddAuthentication
+          AddGoogle
+    
+2 - MVC application config:
+
+(Startup.cs)
+    a. AddAuthentication
+          AddCookie
+          AddOpenIdConnect
+                          
+3 - API config:
+
+(Startup.cs)
+    a. AddAuthentication
+          AddJwtBearer
+    b. AddAuthorization
+    c. AddCors     
+          
+```
+
