@@ -8,7 +8,7 @@ First run will initialize the database IdentityServerSample with all the tables 
 Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's first time, accept consent and once logged in can access API resources.<br/>
 
 ## Diagram
-<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/master/identityserverdiag.jpg" />
+<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/master/identityserverdiagram.jpg" />
 
 ## Scenarios Covered
 
