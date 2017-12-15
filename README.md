@@ -59,3 +59,27 @@ Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's
           
 ```
 
+## Useful Resources
+
+### Identity Server
+
+* http://identityserver.io/
+* https://brockallen.com/
+* https://www.scottbrady91.com/Identity-Server/Getting-Started-with-IdentityServer-4
+* https://medium.com/@robert.broeckelmann
+* https://elanderson.net/2017/05/identity-server-introduction/
+
+### JWT
+
+* https://jwt.io/
+* https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec
+* https://auth0.com/learn/json-web-tokens/
+* https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/
+
+### Pluralsight Courses
+
+* https://app.pluralsight.com/library/courses/asp-dot-net-core-oauth
+* https://app.pluralsight.com/library/courses/oauth2-json-web-tokens-openid-connect-introduction
+* https://app.pluralsight.com/library/courses/aspnet-core-identity-management-playbook
+* https://app.pluralsight.com/library/courses/asp-dotnet-core-oauth2-openid-connect-securing
+* https://app.pluralsight.com/library/courses/asp-dot-net-core-security-understanding
