@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.Api", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.IdentityServer", "IdentityServerSample.IdentityServer\IdentityServerSample.IdentityServer.csproj", "{C0EF57FE-B51D-4DC7-BE8A-139C91668565}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerSample.Data", "IdentityServerSample.Data\IdentityServerSample.Data.csproj", "{95FCB41A-62C2-4F49-B39C-4CF0A73D659B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.Data", "IdentityServerSample.Data\IdentityServerSample.Data.csproj", "{95FCB41A-62C2-4F49-B39C-4CF0A73D659B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerSample.Domain", "IdentityServerSample.Domain\IdentityServerSample.Domain.csproj", "{252B641E-03E2-4B93-9A82-E96E2428BA72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.Domain", "IdentityServerSample.Domain\IdentityServerSample.Domain.csproj", "{252B641E-03E2-4B93-9A82-E96E2428BA72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerSample.AngularApp", "IdentityServerSample.AngularApp\IdentityServerSample.AngularApp.csproj", "{298CB78C-CCE4-486A-8F81-545BF451FD12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{252B641E-03E2-4B93-9A82-E96E2428BA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{252B641E-03E2-4B93-9A82-E96E2428BA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{252B641E-03E2-4B93-9A82-E96E2428BA72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{298CB78C-CCE4-486A-8F81-545BF451FD12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{298CB78C-CCE4-486A-8F81-545BF451FD12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{298CB78C-CCE4-486A-8F81-545BF451FD12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{298CB78C-CCE4-486A-8F81-545BF451FD12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

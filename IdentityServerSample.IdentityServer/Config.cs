@@ -63,6 +63,27 @@ namespace IdentityServerSample.IdentityServer
                     PostLogoutRedirectUris = { "https://localhost:44340/SignOutCallback.html" },
                     AllowedCorsOrigins = { "https://localhost:44340" },
                     RequireConsent = false
+                },
+                // OpenID Connect implicit flow client (Angular)
+                new Client
+                {
+                    ClientId = "ng",
+                    ClientName = "Angular Client",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    RequireConsent = true,
+
+                    RedirectUris = { "https://localhost:44382/callback" },
+                    PostLogoutRedirectUris = { "https://localhost:44382/home" },
+                    AllowedCorsOrigins = { "https://localhost:44382" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    },
+
                 }
             };
         }
