@@ -8,15 +8,17 @@ First run will initialize the database IdentityServerSample with all the tables 
 Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's first time, accept consent and once logged in can access API resources.<br/>
 
 ## Diagram
-<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/master/identityserverdiagram.jpg" />
+<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/b4632e3402fd6ae591eaca50493bc289250c2901/identityserverdiagram.jpg" />
 
 ## Scenarios Covered
 
-* User Authentication
+* User Authentication (WebApp)
+* User Authentication (AngularApp)
 * User Authentication from javascript (oidc-client.js)
 * User Authentication with 3rd party provider (Google)
-* Call API from C# 
-* Call API from javascript 
+* Call API from C# (WebApp)
+* Call API from javascript (WebApp)
+* Call API from Angular (AngularApp)
 * Long lived API access using refresh tokens (allow requesting new access tokens without user interaction)
 
 ## Steps
