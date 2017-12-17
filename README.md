@@ -8,15 +8,18 @@ First run will initialize the database IdentityServerSample with all the tables 
 Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's first time, accept consent and once logged in can access API resources.<br/>
 
 ## Diagram
-<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/master/identityserverdiagram.jpg" />
+<img src="https://github.com/alanmacgowan/alanmacgowan.github.io/blob/b4632e3402fd6ae591eaca50493bc289250c2901/identityserverdiagram.jpg" />
 
 ## Scenarios Covered
 
-* User Authentication
-* User Authentication pop-up (javascript)
+* User Authentication (WebApp)
+* User Authentication (AngularApp)
+* User Authentication from javascript (oidc-client.js)
 * User Authentication with 3rd party provider (Google)
-* Call API from C# 
-* Call API from javascript 
+* Call API from C# (WebApp)
+* Call API from javascript (WebApp)
+* Call API from Angular (AngularApp)
+* Long lived API access using refresh tokens (allow requesting new access tokens without user interaction)
 
 ## Steps
 
@@ -58,3 +61,27 @@ Go to Web App -> SignIn, this will redirect to Identity Server. Register if it's
           
 ```
 
+## Useful Resources
+
+### Identity Server
+
+* http://identityserver.io/
+* https://brockallen.com/
+* https://www.scottbrady91.com/Identity-Server/Getting-Started-with-IdentityServer-4
+* https://medium.com/@robert.broeckelmann
+* https://elanderson.net/2017/05/identity-server-introduction/
+
+### JWT
+
+* https://jwt.io/
+* https://medium.com/vandium-software/5-easy-steps-to-understanding-json-web-tokens-jwt-1164c0adfcec
+* https://auth0.com/learn/json-web-tokens/
+* https://auth0.com/blog/ten-things-you-should-know-about-tokens-and-cookies/
+
+### Pluralsight Courses
+
+* https://app.pluralsight.com/library/courses/asp-dot-net-core-oauth
+* https://app.pluralsight.com/library/courses/oauth2-json-web-tokens-openid-connect-introduction
+* https://app.pluralsight.com/library/courses/aspnet-core-identity-management-playbook
+* https://app.pluralsight.com/library/courses/asp-dotnet-core-oauth2-openid-connect-securing
+* https://app.pluralsight.com/library/courses/asp-dot-net-core-security-understanding
