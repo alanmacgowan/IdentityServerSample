@@ -48,7 +48,7 @@ namespace IdentityServerSample.Api
 
             services.AddCors(options => {
                 options.AddPolicy("SPA", policy => {
-                    policy.WithOrigins("https://localhost:44340")
+                    policy.WithOrigins("https://localhost:44340", "https://localhost:44398")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });

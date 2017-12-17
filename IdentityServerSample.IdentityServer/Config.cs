@@ -73,9 +73,9 @@ namespace IdentityServerSample.IdentityServer
                     AllowAccessTokensViaBrowser = true,
                     RequireConsent = true,
 
-                    RedirectUris = { "https://localhost:44382/callback" },
-                    PostLogoutRedirectUris = { "https://localhost:44382/home" },
-                    AllowedCorsOrigins = { "https://localhost:44382" },
+                    RedirectUris = { "https://localhost:44398/callback" },
+                    PostLogoutRedirectUris = { "https://localhost:44398/home" },
+                    AllowedCorsOrigins = { "https://localhost:44398" },
 
                     AllowedScopes =
                     {
