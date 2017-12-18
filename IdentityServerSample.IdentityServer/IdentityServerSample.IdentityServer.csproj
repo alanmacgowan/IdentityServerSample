@@ -25,4 +25,8 @@
     <ProjectReference Include="..\IdentityServerSample.Domain\IdentityServerSample.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Quickstart\Home\" />
+  </ItemGroup>
+
 </Project>
