@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.Domain
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.AngularApp", "IdentityServerSample.AngularApp\IdentityServerSample.AngularApp.csproj", "{8D3E478B-94A0-4F47-8103-A2EBDA90F289}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerManager.UI", "IdentityUserManager.UI\IdentityServerManager.UI.csproj", "{647DA9E0-B7DD-4072-966D-1CC21F29AE05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerManager.UI", "IdentityServerManager.UI\IdentityServerManager.UI.csproj", "{647DA9E0-B7DD-4072-966D-1CC21F29AE05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
