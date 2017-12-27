@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.Data",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.Domain", "IdentityServerSample.Domain\IdentityServerSample.Domain.csproj", "{252B641E-03E2-4B93-9A82-E96E2428BA72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerSample.AngularApp", "IdentityServerSample.AngularApp\IdentityServerSample.AngularApp.csproj", "{8D3E478B-94A0-4F47-8103-A2EBDA90F289}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServerSample.AngularApp", "IdentityServerSample.AngularApp\IdentityServerSample.AngularApp.csproj", "{8D3E478B-94A0-4F47-8103-A2EBDA90F289}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityUserManager.UI", "IdentityUserManager.UI\IdentityUserManager.UI.csproj", "{647DA9E0-B7DD-4072-966D-1CC21F29AE05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{8D3E478B-94A0-4F47-8103-A2EBDA90F289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D3E478B-94A0-4F47-8103-A2EBDA90F289}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D3E478B-94A0-4F47-8103-A2EBDA90F289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{647DA9E0-B7DD-4072-966D-1CC21F29AE05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{647DA9E0-B7DD-4072-966D-1CC21F29AE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{647DA9E0-B7DD-4072-966D-1CC21F29AE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{647DA9E0-B7DD-4072-966D-1CC21F29AE05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

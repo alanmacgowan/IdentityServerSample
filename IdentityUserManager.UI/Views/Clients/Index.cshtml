@@ -1,0 +1,233 @@
+﻿@model IEnumerable<IdentityServer4.EntityFramework.Entities.Client>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Enabled)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClientId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProtocolType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RequireClientSecret)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClientName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClientUri)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LogoUri)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RequireConsent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllowRememberConsent)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AlwaysIncludeUserClaimsInIdToken)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RequirePkce)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllowPlainTextPkce)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllowAccessTokensViaBrowser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FrontChannelLogoutUri)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FrontChannelLogoutSessionRequired)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BackChannelLogoutUri)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BackChannelLogoutSessionRequired)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AllowOfflineAccess)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdentityTokenLifetime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccessTokenLifetime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AuthorizationCodeLifetime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ConsentLifetime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AbsoluteRefreshTokenLifetime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SlidingRefreshTokenLifetime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RefreshTokenUsage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdateAccessTokenClaimsOnRefresh)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.RefreshTokenExpiration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AccessTokenType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EnableLocalLogin)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IncludeJwtId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AlwaysSendClientClaims)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClientClaimsPrefix)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PairWiseSubjectSalt)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enabled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProtocolType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequireClientSecret)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientUri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LogoUri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequireConsent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllowRememberConsent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlwaysIncludeUserClaimsInIdToken)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequirePkce)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllowPlainTextPkce)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllowAccessTokensViaBrowser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrontChannelLogoutUri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrontChannelLogoutSessionRequired)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackChannelLogoutUri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackChannelLogoutSessionRequired)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllowOfflineAccess)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentityTokenLifetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccessTokenLifetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorizationCodeLifetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsentLifetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AbsoluteRefreshTokenLifetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SlidingRefreshTokenLifetime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefreshTokenUsage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdateAccessTokenClaimsOnRefresh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefreshTokenExpiration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccessTokenType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnableLocalLogin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncludeJwtId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlwaysSendClientClaims)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientClaimsPrefix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PairWiseSubjectSalt)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
