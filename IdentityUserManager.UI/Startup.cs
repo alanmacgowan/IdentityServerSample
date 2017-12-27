@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IdentityServer4.EntityFramework.DbContexts;
-using IdentityServerSample.Data;
+﻿using IdentityServerManager.UI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace IdentityUserManager.UI
+namespace IdentityServerManager.UI
 {
     public class Startup
     {
@@ -25,7 +20,7 @@ namespace IdentityUserManager.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ConfigurationDbContext>(options =>
-    options.UseSqlServer(Configuration.GetConnectionString("IdentityServerConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("IdentityServerConnection")));
 
             services.AddMvc();
         }

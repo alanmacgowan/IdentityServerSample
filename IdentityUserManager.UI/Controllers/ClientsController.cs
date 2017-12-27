@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using IdentityServer4.EntityFramework.Entities;
+using IdentityServerManager.UI.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using IdentityServer4.EntityFramework.DbContexts;
-using IdentityServer4.EntityFramework.Entities;
 
-namespace IdentityUserManager.UI.Controllers
+namespace IdentityServerManager.UI.Controllers
 {
     public class ClientsController : Controller
     {

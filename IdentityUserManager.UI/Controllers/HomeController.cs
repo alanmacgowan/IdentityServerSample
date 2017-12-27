@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using IdentityUserManager.UI.Models;
+using IdentityServerManager.UI.Models;
 
-namespace IdentityUserManager.UI.Controllers
+namespace IdentityServerManager.UI.Controllers
 {
     public class HomeController : Controller
     {
