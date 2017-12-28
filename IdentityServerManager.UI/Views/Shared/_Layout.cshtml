@@ -34,15 +34,17 @@
         @Html.Partial("_Navigation")
 
         <div class="main-panel">
-            <div class="container body-content">
 
-                @Html.Partial("_TopNavbar")
+            @Html.Partial("_TopNavbar")
 
-                @RenderBody()
-
-                @Html.Partial("_Footer")
-
+            <div class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
             </div>
+
+            @Html.Partial("_Footer")
+
         </div>
 
     </div>
