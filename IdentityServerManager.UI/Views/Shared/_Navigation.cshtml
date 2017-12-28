@@ -19,7 +19,7 @@
             </li>
             <li class="@Html.IsSelected(controller:"Clients")">
                 <a asp-area="" asp-controller="Clients" asp-action="Index">
-                    <i class="ti-user"></i>
+                    <i class="ti-server"></i>
                     <p>Clients</p>
                 </a>
             </li>
@@ -27,6 +27,12 @@
                 <a asp-area="" asp-controller="ApiResources" asp-action="Index">
                     <i class="ti-world"></i>
                     <p>Api Resources</p>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller:"IdentityResources")">
+                <a asp-area="" asp-controller="IdentityResources" asp-action="Index">
+                    <i class="ti-user"></i>
+                    <p>Identity Resources</p>
                 </a>
             </li>
         </ul>
