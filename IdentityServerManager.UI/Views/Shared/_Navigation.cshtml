@@ -1,0 +1,28 @@
+﻿@using IdentityServerManager.UI.Helpers
+<div class="sidebar" data-background-color="black" data-active-color="warning">
+    <!--
+        Tip 1: you can change the color of the sidebar's background using: data-background-color="white | black"
+        Tip 2: you can change the color of the active button using the data-active-color="primary | info | success | warning | danger"
+    -->
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="simple-text">
+                IdServerManager
+            </a>
+        </div>
+        <ul class="nav">
+            <li class="@Html.IsSelected(controller:"Home",action: "Index")">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="ti-panel"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller:"Clients",action: "Index")">
+                <a asp-area="" asp-controller="Clients" asp-action="Index">
+                    <i class="ti-user"></i>
+                    <p>Clients</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
