@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
     <PackageReference Include="IdentityServer4" Version="2.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" />
@@ -15,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\assets\.DS_Store" />
     <None Include="wwwroot\assets\css\.DS_Store" />
     <None Include="wwwroot\assets\css\animate.min.css" />
     <None Include="wwwroot\assets\css\bootstrap.min.css" />
@@ -81,6 +82,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IdentityServerSample.Data\IdentityServerSample.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

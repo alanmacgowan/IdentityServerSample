@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using IdentityServerManager.UI.Infrastructure;
+using AutoMapper;
 
 namespace IdentityServerManager.UI
 {
@@ -19,6 +21,8 @@ namespace IdentityServerManager.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper();
+
             services.AddDbContext<ConfigurationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityServerConnection")));
 

@@ -1,7 +1,11 @@
-﻿using IdentityServer4.EntityFramework.Entities;
+﻿using AutoMapper;
+using IdentityServer4.EntityFramework.Entities;
 using IdentityServerManager.UI.Data;
+using IdentityServerManager.UI.Infrastructure;
+using IdentityServerManager.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,13 +20,12 @@ namespace IdentityServerManager.UI.Controllers
             _context = context;
         }
 
-        // GET: Clients
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clients.ToListAsync());
+            var clients = await _context.Clients.ToListAsync();
+            return View(Mapper.Map<IEnumerable<Client>, IEnumerable<ClientViewModel>>(clients));
         }
 
-        // GET: Clients/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -37,32 +40,27 @@ namespace IdentityServerManager.UI.Controllers
                 return NotFound();
             }
 
-            return View(client);
+            return View(client.MapTo<ClientViewModel>());
         }
 
-        // GET: Clients/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new ClientViewModel());
         }
 
-        // POST: Clients/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Enabled,ClientId,ProtocolType,RequireClientSecret,ClientName,Description,ClientUri,LogoUri,RequireConsent,AllowRememberConsent,AlwaysIncludeUserClaimsInIdToken,RequirePkce,AllowPlainTextPkce,AllowAccessTokensViaBrowser,FrontChannelLogoutUri,FrontChannelLogoutSessionRequired,BackChannelLogoutUri,BackChannelLogoutSessionRequired,AllowOfflineAccess,IdentityTokenLifetime,AccessTokenLifetime,AuthorizationCodeLifetime,ConsentLifetime,AbsoluteRefreshTokenLifetime,SlidingRefreshTokenLifetime,RefreshTokenUsage,UpdateAccessTokenClaimsOnRefresh,RefreshTokenExpiration,AccessTokenType,EnableLocalLogin,IncludeJwtId,AlwaysSendClientClaims,ClientClaimsPrefix,PairWiseSubjectSalt")] Client client)
+        public async Task<IActionResult> Create(ClientViewModel clientVM)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(client);
+                _context.Add(clientVM.MapTo<Client>());
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(client);
+            return View(clientVM);
         }
 
-        // GET: Clients/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -75,17 +73,14 @@ namespace IdentityServerManager.UI.Controllers
             {
                 return NotFound();
             }
-            return View(client);
+            return View(client.MapTo<ClientViewModel>());
         }
 
-        // POST: Clients/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Enabled,ClientId,ProtocolType,RequireClientSecret,ClientName,Description,ClientUri,LogoUri,RequireConsent,AllowRememberConsent,AlwaysIncludeUserClaimsInIdToken,RequirePkce,AllowPlainTextPkce,AllowAccessTokensViaBrowser,FrontChannelLogoutUri,FrontChannelLogoutSessionRequired,BackChannelLogoutUri,BackChannelLogoutSessionRequired,AllowOfflineAccess,IdentityTokenLifetime,AccessTokenLifetime,AuthorizationCodeLifetime,ConsentLifetime,AbsoluteRefreshTokenLifetime,SlidingRefreshTokenLifetime,RefreshTokenUsage,UpdateAccessTokenClaimsOnRefresh,RefreshTokenExpiration,AccessTokenType,EnableLocalLogin,IncludeJwtId,AlwaysSendClientClaims,ClientClaimsPrefix,PairWiseSubjectSalt")] Client client)
+        public async Task<IActionResult> Edit(int id, ClientViewModel clientVM)
         {
-            if (id != client.Id)
+            if (id != clientVM.Id)
             {
                 return NotFound();
             }
@@ -94,12 +89,12 @@ namespace IdentityServerManager.UI.Controllers
             {
                 try
                 {
-                    _context.Update(client);
+                    _context.Update(clientVM.MapTo<Client>());
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClientExists(client.Id))
+                    if (!ClientExists(clientVM.Id))
                     {
                         return NotFound();
                     }
@@ -110,10 +105,9 @@ namespace IdentityServerManager.UI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(client);
+            return View(clientVM);
         }
 
-        // GET: Clients/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -128,10 +122,9 @@ namespace IdentityServerManager.UI.Controllers
                 return NotFound();
             }
 
-            return View(client);
+            return View(client.MapTo<ClientViewModel>());
         }
 
-        // POST: Clients/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
