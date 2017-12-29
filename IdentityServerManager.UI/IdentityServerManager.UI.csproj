@@ -17,67 +17,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\assets\css\.DS_Store" />
     <None Include="wwwroot\assets\css\animate.min.css" />
     <None Include="wwwroot\assets\css\bootstrap.min.css" />
-    <None Include="wwwroot\assets\css\demo.css" />
     <None Include="wwwroot\assets\css\paper-dashboard.css" />
     <None Include="wwwroot\assets\css\themify-icons.css" />
-    <None Include="wwwroot\assets\fonts\.DS_Store" />
     <None Include="wwwroot\assets\fonts\themify.eot" />
     <None Include="wwwroot\assets\fonts\themify.svg" />
     <None Include="wwwroot\assets\fonts\themify.ttf" />
     <None Include="wwwroot\assets\fonts\themify.woff" />
-    <None Include="wwwroot\assets\img\.DS_Store" />
-    <None Include="wwwroot\assets\img\apple-icon.png" />
-    <None Include="wwwroot\assets\img\background.jpg" />
-    <None Include="wwwroot\assets\img\background\.DS_Store" />
-    <None Include="wwwroot\assets\img\faces\.DS_Store" />
-    <None Include="wwwroot\assets\img\faces\face-0.jpg" />
-    <None Include="wwwroot\assets\img\faces\face-1.jpg" />
-    <None Include="wwwroot\assets\img\faces\face-2.jpg" />
-    <None Include="wwwroot\assets\img\faces\face-3.jpg" />
     <None Include="wwwroot\assets\img\favicon.png" />
-    <None Include="wwwroot\assets\img\new_logo.png" />
-    <None Include="wwwroot\assets\img\tables\.DS_Store" />
-    <None Include="wwwroot\assets\img\tim_80x80.png" />
-    <None Include="wwwroot\assets\js\.DS_Store" />
     <None Include="wwwroot\assets\js\bootstrap-checkbox-radio.js" />
     <None Include="wwwroot\assets\js\bootstrap-notify.js" />
     <None Include="wwwroot\assets\js\bootstrap.min.js" />
-    <None Include="wwwroot\assets\js\chartist.min.js" />
-    <None Include="wwwroot\assets\js\demo.js" />
     <None Include="wwwroot\assets\js\jquery-1.10.2.js" />
     <None Include="wwwroot\assets\js\paper-dashboard.js" />
-    <None Include="wwwroot\assets\sass\.DS_Store" />
-    <None Include="wwwroot\assets\sass\paper-dashboard.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_buttons.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_cards.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_chartist.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_icons.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_inputs.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_labels.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_navbars.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_sidebar.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_tabs.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_transparency.scss" />
-    <None Include="wwwroot\assets\sass\paper\mixins\_vendor-prefixes.scss" />
-    <None Include="wwwroot\assets\sass\paper\_alerts.scss" />
-    <None Include="wwwroot\assets\sass\paper\_buttons.scss" />
-    <None Include="wwwroot\assets\sass\paper\_cards.scss" />
-    <None Include="wwwroot\assets\sass\paper\_chartist.scss" />
-    <None Include="wwwroot\assets\sass\paper\_checkbox-radio.scss" />
-    <None Include="wwwroot\assets\sass\paper\_dropdown.scss" />
-    <None Include="wwwroot\assets\sass\paper\_footers.scss" />
-    <None Include="wwwroot\assets\sass\paper\_inputs.scss" />
-    <None Include="wwwroot\assets\sass\paper\_misc.scss" />
-    <None Include="wwwroot\assets\sass\paper\_mixins.scss" />
-    <None Include="wwwroot\assets\sass\paper\_navbars.scss" />
-    <None Include="wwwroot\assets\sass\paper\_responsive.scss" />
-    <None Include="wwwroot\assets\sass\paper\_sidebar-and-main-panel.scss" />
-    <None Include="wwwroot\assets\sass\paper\_tables.scss" />
-    <None Include="wwwroot\assets\sass\paper\_typography.scss" />
-    <None Include="wwwroot\assets\sass\paper\_variables.scss" />
   </ItemGroup>
 
   <ItemGroup>
@@ -85,6 +38,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\assets\img\background\" />
+    <Folder Include="wwwroot\assets\img\tables\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
