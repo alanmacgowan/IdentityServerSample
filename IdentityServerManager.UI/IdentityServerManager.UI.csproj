@@ -17,10 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\fonts\themify.eot" />
-    <None Include="wwwroot\fonts\themify.svg" />
-    <None Include="wwwroot\fonts\themify.ttf" />
-    <None Include="wwwroot\fonts\themify.woff" />
+    <None Include="wwwroot\css\fonts\themify.eot" />
+    <None Include="wwwroot\css\fonts\themify.svg" />
+    <None Include="wwwroot\css\fonts\themify.ttf" />
+    <None Include="wwwroot\css\fonts\themify.woff" />
     <None Include="wwwroot\img\favicon.png" />
   </ItemGroup>
 
@@ -29,8 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\css\dist\" />
     <Folder Include="wwwroot\img\background\" />
     <Folder Include="wwwroot\img\tables\" />
+    <Folder Include="wwwroot\js\dist\" />
   </ItemGroup>
 
 </Project>

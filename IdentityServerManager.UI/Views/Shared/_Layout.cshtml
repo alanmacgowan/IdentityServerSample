@@ -9,17 +9,22 @@
     <title>@ViewData["Title"] - IdentityServerManager.UI</title>
 
 
+    @*<environment include="Development">
+            <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+            <link href="~/css/animate.min.css" rel="stylesheet" />
+            <link href="~/css/paper-dashboard.css" rel="stylesheet" />
+            <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+            <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+            <link href="~/css/themify-icons.css" rel="stylesheet">
+        </environment>*@
+
     <environment include="Development">
-        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />        
-        <link href="~/css/animate.min.css" rel="stylesheet" />
-        <link href="~/css/paper-dashboard.css" rel="stylesheet" />
-        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-        <link href="~/css/themify-icons.css" rel="stylesheet">
+        <link href="~/css/dist/styles.vendor.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
     </environment>
-
     <environment exclude="Development">
-
+        <link href="~/css/dist/styles.vendor.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
     </environment>
 
 </head>
@@ -46,17 +51,22 @@
 
     @Html.Hidden("SuccessMessage", (ViewData["SuccessMessage"] != null ? ViewData["SuccessMessage"].ToString() : ""))
 
+    @*<environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+            <script src="~/js/bootstrap-checkbox-radio.js"></script>
+            <script src="~/js/bootstrap-notify.js"></script>
+            <script src="~/js/paper-dashboard.js"></script>
+            <script src="~/js/site.js"></script>
+        </environment>*@
+
     <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.min.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="~/js/bootstrap-checkbox-radio.js"></script>
-        <script src="~/js/bootstrap-notify.js"></script>
-        <script src="~/js/paper-dashboard.js"></script>
-        <script src="~/js/site.js"></script>
+        <script src="~/js/dist/scripts.vendor.js" asp-append-version="true"></script>
+        <script src="~/js/dist/scripts.app.js" asp-append-version="true"></script>
     </environment>
-
     <environment exclude="Development">
-
+        <script src="~/js/dist/scripts.vendor.min.js" asp-append-version="true"></script>
+        <script src="~/js/dist/scripts.app.min.js" asp-append-version="true"></script>
     </environment>
 
     @RenderSection("Scripts", required: false)
