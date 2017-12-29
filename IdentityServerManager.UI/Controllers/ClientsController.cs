@@ -20,8 +20,9 @@ namespace IdentityServerManager.UI.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SuccessMessage = null)
         {
+            ViewData["SuccessMessage"] = SuccessMessage;
             var clients = await _context.Clients.ToListAsync();
             return View(Mapper.Map<IEnumerable<Client>, IEnumerable<ClientViewModel>>(clients));
         }
@@ -56,7 +57,7 @@ namespace IdentityServerManager.UI.Controllers
             {
                 _context.Add(clientVM.MapTo<Client>());
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { SuccessMessage = "Client successfully created." });
             }
             return View(clientVM);
         }
@@ -103,7 +104,7 @@ namespace IdentityServerManager.UI.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { SuccessMessage = "Client successfully edited." });
             }
             return View(clientVM);
         }

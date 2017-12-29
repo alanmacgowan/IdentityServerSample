@@ -60,25 +60,4 @@
     </table>
 </div>
 
-@Html.Hidden("SuccessMessage", (ViewData["SuccessMessage"] != null ? ViewData["SuccessMessage"].ToString() : ""))
-
-@section scripts{
-
-    <script type="text/javascript">
-
-        var successMessage = $('#SuccessMessage').val();
-
-        $(document).ready(function () {
-            if (successMessage != "") {
-                $.notify({
-                    icon: 'ti-user',
-                    message: successMessage
-                }, { type: 'success', timer: 2000 });
-            }
-        });
-
-    </script>
-
-}
-
 

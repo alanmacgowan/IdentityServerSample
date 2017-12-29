@@ -48,6 +48,8 @@
         </div>
 
     </div>
+    @Html.Hidden("SuccessMessage", (ViewData["SuccessMessage"] != null ? ViewData["SuccessMessage"].ToString() : ""))
+
     <environment include="Development">
         <!--   Core JS Files   -->
         <script src="~/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
@@ -63,6 +65,8 @@
         <script src="~/assets/js/paper-dashboard.js"></script>
         <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
         <script src="~/assets/js/demo.js"></script>
+
+        <script src="~/js/site.js"></script>
     </environment>
 
     <environment exclude="Development">

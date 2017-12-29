@@ -22,8 +22,9 @@ namespace IdentityServerManager.UI.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SuccessMessage = null)
         {
+            ViewData["SuccessMessage"] = SuccessMessage;
             var apiResource = await _context.ApiResources.ToListAsync();
             return View(Mapper.Map<IEnumerable<ApiResource>, IEnumerable<ApiResourceViewModel>>(apiResource));
         }
@@ -58,7 +59,7 @@ namespace IdentityServerManager.UI.Controllers
             {
                 _context.Add(apiResourceVM.MapTo<ApiResource>());
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { SuccessMessage = "Api Resource successfully created." });
             }
             return View(apiResourceVM);
         }
@@ -105,7 +106,7 @@ namespace IdentityServerManager.UI.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { SuccessMessage = "Api Resource successfully edited." });
             }
             return View(apiResourceVM);
         }
