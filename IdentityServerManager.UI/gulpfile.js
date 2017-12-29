@@ -16,8 +16,8 @@ var cssSourceFiles = [
     libPath + '/bootstrap/dist/css/bootstrap.min.css',
     cssPath + '/animate.min.css',
     cssPath + '/paper-dashboard.css',
-    cssPath + '/themify-icons.css',
     nodeModulesPath + '/font-awesome/css/font-awesome.min.css',
+    cssPath + '/themify-icons.css',
     nodeModulesPath + '/bootstrap-dialog/dist/css/bootstrap-dialog.min.css',
     nodeModulesPath + '/select2/dist/css/select2.min.css',
 ];
