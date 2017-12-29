@@ -2,23 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewData["Title"] - IdentityServerManager.UI</title>
 
     <environment include="Development">
-        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="~/css/dist/styles.vendor.css" rel="stylesheet" asp-append-version="true" />
     </environment>
     <environment exclude="Development">
         <link href="~/css/dist/styles.vendor.css" rel="stylesheet" asp-append-version="true" />
-        <link href="~/css/site.min.css" rel="stylesheet" asp-append-version="true" />
     </environment>
 
 </head>
 <body>
+
     <div class="wrapper">
 
         @Html.Partial("_Navigation")
