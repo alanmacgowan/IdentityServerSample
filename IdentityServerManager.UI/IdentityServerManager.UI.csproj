@@ -17,20 +17,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\assets\css\animate.min.css" />
-    <None Include="wwwroot\assets\css\bootstrap.min.css" />
-    <None Include="wwwroot\assets\css\paper-dashboard.css" />
-    <None Include="wwwroot\assets\css\themify-icons.css" />
-    <None Include="wwwroot\assets\fonts\themify.eot" />
-    <None Include="wwwroot\assets\fonts\themify.svg" />
-    <None Include="wwwroot\assets\fonts\themify.ttf" />
-    <None Include="wwwroot\assets\fonts\themify.woff" />
-    <None Include="wwwroot\assets\img\favicon.png" />
-    <None Include="wwwroot\assets\js\bootstrap-checkbox-radio.js" />
-    <None Include="wwwroot\assets\js\bootstrap-notify.js" />
-    <None Include="wwwroot\assets\js\bootstrap.min.js" />
-    <None Include="wwwroot\assets\js\jquery-1.10.2.js" />
-    <None Include="wwwroot\assets\js\paper-dashboard.js" />
+    <None Include="wwwroot\fonts\themify.eot" />
+    <None Include="wwwroot\fonts\themify.svg" />
+    <None Include="wwwroot\fonts\themify.ttf" />
+    <None Include="wwwroot\fonts\themify.woff" />
+    <None Include="wwwroot\img\favicon.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,9 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\assets\img\background\" />
-    <Folder Include="wwwroot\assets\img\tables\" />
-    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\img\background\" />
+    <Folder Include="wwwroot\img\tables\" />
   </ItemGroup>
 
 </Project>
