@@ -22,8 +22,9 @@ namespace IdentityServerManager.UI.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string SuccessMessage = null)
         {
+            ViewData["SuccessMessage"] = SuccessMessage;
             var identityResource = await _context.IdentityResources.ToListAsync();
             return View(Mapper.Map<IEnumerable<IdentityResource>, IEnumerable<IdentityResourceViewModel>>(identityResource));
         }
@@ -47,7 +48,7 @@ namespace IdentityServerManager.UI.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            return View(new IdentityResourceViewModel());
         }
 
         [HttpPost]
@@ -58,7 +59,7 @@ namespace IdentityServerManager.UI.Controllers
             {
                 _context.Add(identityResourceVM.MapTo<IdentityResource>());
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { SuccessMessage = "Identity Resource successfully created." });
             }
             return View(identityResourceVM);
         }
@@ -105,7 +106,7 @@ namespace IdentityServerManager.UI.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index), new { SuccessMessage = "Identity Resource successfully edited." } );
             }
             return View(identityResourceVM);
         }
