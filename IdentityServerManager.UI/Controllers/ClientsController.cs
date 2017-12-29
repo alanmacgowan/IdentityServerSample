@@ -109,23 +109,6 @@ namespace IdentityServerManager.UI.Controllers
             return View(clientVM);
         }
 
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var client = await _context.Clients
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (client == null)
-            {
-                return NotFound();
-            }
-
-            return View(client.MapTo<ClientViewModel>());
-        }
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -133,7 +116,7 @@ namespace IdentityServerManager.UI.Controllers
             var client = await _context.Clients.SingleOrDefaultAsync(m => m.Id == id);
             _context.Clients.Remove(client);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { SuccessMessage = "Client successfully deleted." });
         }
 
         private bool ClientExists(int id)
