@@ -52,12 +52,16 @@
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-icon"><i class="fa fa-pencil"></i></a>
                         <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-icon"><i class="fa fa-bars"></i></a>
-                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></a>
+                        <a href="javascript:void(0)" onclick="deleteItem(@item.Id)" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+<form id="deleteForm" name="deleteForm" asp-action="Delete">
+    <input type="hidden" name="Id" id="Id" />
+</form>
 
 

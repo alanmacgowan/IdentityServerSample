@@ -111,31 +111,14 @@ namespace IdentityServerManager.UI.Controllers
             return View(identityResourceVM);
         }
 
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var identityResource = await _context.IdentityResources
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (identityResource == null)
-            {
-                return NotFound();
-            }
-
-            return View(identityResource.MapTo<IdentityResourceViewModel>());
-        }
-
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var identityResource = await _context.IdentityResources.SingleOrDefaultAsync(m => m.Id == id);
             _context.IdentityResources.Remove(identityResource);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { SuccessMessage = "Identity Resource successfully deleted." });
         }
 
         private bool IdentityResourceExists(int id)

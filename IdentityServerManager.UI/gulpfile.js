@@ -20,6 +20,7 @@ var cssSourceFiles = [
     cssPath + '/themify-icons.css',
     nodeModulesPath + '/bootstrap-dialog/dist/css/bootstrap-dialog.min.css',
     nodeModulesPath + '/select2/dist/css/select2.min.css',
+    cssPath + '/site.css',
 ];
 var jsVendorSourceFiles = [
     libPath + '/jquery/dist/jquery.min.js',
