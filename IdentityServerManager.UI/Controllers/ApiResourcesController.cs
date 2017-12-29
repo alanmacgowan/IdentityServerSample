@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IdentityServer4.EntityFramework.Entities;
 using IdentityServerManager.UI.Data;
+using IdentityServerManager.UI.Models;
+using AutoMapper;
+using IdentityServerManager.UI.Infrastructure;
 
 namespace IdentityServerManager.UI.Controllers
 {
@@ -19,13 +22,12 @@ namespace IdentityServerManager.UI.Controllers
             _context = context;
         }
 
-        // GET: ApiResources
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ApiResources.ToListAsync());
+            var apiResource = await _context.ApiResources.ToListAsync();
+            return View(Mapper.Map<IEnumerable<ApiResource>, IEnumerable<ApiResourceViewModel>>(apiResource));
         }
 
-        // GET: ApiResources/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -40,32 +42,27 @@ namespace IdentityServerManager.UI.Controllers
                 return NotFound();
             }
 
-            return View(apiResource);
+            return View(apiResource.MapTo<ApiResourceViewModel>());
         }
 
-        // GET: ApiResources/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new ApiResourceViewModel());
         }
 
-        // POST: ApiResources/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Enabled,Name,DisplayName,Description")] ApiResource apiResource)
+        public async Task<IActionResult> Create(ApiResourceViewModel apiResourceVM)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(apiResource);
+                _context.Add(apiResourceVM.MapTo<ApiResource>());
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(apiResource);
+            return View(apiResourceVM);
         }
 
-        // GET: ApiResources/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,17 +75,14 @@ namespace IdentityServerManager.UI.Controllers
             {
                 return NotFound();
             }
-            return View(apiResource);
+            return View(apiResource.MapTo<ApiResourceViewModel>());
         }
 
-        // POST: ApiResources/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Enabled,Name,DisplayName,Description")] ApiResource apiResource)
+        public async Task<IActionResult> Edit(int id, ApiResourceViewModel apiResourceVM)
         {
-            if (id != apiResource.Id)
+            if (id != apiResourceVM.Id)
             {
                 return NotFound();
             }
@@ -97,12 +91,12 @@ namespace IdentityServerManager.UI.Controllers
             {
                 try
                 {
-                    _context.Update(apiResource);
+                    _context.Update(apiResourceVM.MapTo<ApiResource>());
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ApiResourceExists(apiResource.Id))
+                    if (!ApiResourceExists(apiResourceVM.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +107,9 @@ namespace IdentityServerManager.UI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(apiResource);
+            return View(apiResourceVM);
         }
 
-        // GET: ApiResources/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,10 +124,9 @@ namespace IdentityServerManager.UI.Controllers
                 return NotFound();
             }
 
-            return View(apiResource);
+            return View(apiResource.MapTo<ApiResourceViewModel>());
         }
 
-        // POST: ApiResources/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

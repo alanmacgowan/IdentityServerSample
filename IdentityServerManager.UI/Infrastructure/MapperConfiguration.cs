@@ -10,6 +10,7 @@ namespace IdentityServerManager.UI.Infrastructure
             Mapper.Initialize(cfg =>
             {
                 cfg.AddProfile<ClientsMappingProfile>();
+                cfg.AddProfile<ApiResourcesMappingProfile>();
             });
         }
 
