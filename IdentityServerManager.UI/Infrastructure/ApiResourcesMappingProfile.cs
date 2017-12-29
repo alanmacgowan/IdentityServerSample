@@ -9,7 +9,6 @@ namespace IdentityServerManager.UI.Infrastructure
         public ApiResourcesMappingProfile()
         {
             CreateMap<ApiResource, ApiResourceViewModel>().ReverseMap();
-
         }
     }
 }

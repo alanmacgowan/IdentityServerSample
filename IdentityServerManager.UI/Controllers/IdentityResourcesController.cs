@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using IdentityServer4.EntityFramework.Entities;
 using IdentityServerManager.UI.Data;
+using IdentityServerManager.UI.Models;
+using AutoMapper;
+using IdentityServerManager.UI.Infrastructure;
 
 namespace IdentityServerManager.UI.Controllers
 {
@@ -19,13 +22,12 @@ namespace IdentityServerManager.UI.Controllers
             _context = context;
         }
 
-        // GET: IdentityResources
         public async Task<IActionResult> Index()
         {
-            return View(await _context.IdentityResources.ToListAsync());
+            var identityResource = await _context.IdentityResources.ToListAsync();
+            return View(Mapper.Map<IEnumerable<IdentityResource>, IEnumerable<IdentityResourceViewModel>>(identityResource));
         }
 
-        // GET: IdentityResources/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -40,32 +42,27 @@ namespace IdentityServerManager.UI.Controllers
                 return NotFound();
             }
 
-            return View(identityResource);
+            return View(identityResource.MapTo<IdentityResourceViewModel>());
         }
 
-        // GET: IdentityResources/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: IdentityResources/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Enabled,Name,DisplayName,Description,Required,Emphasize,ShowInDiscoveryDocument")] IdentityResource identityResource)
+        public async Task<IActionResult> Create(IdentityResourceViewModel identityResourceVM)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(identityResource);
+                _context.Add(identityResourceVM.MapTo<IdentityResource>());
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(identityResource);
+            return View(identityResourceVM);
         }
 
-        // GET: IdentityResources/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,17 +75,14 @@ namespace IdentityServerManager.UI.Controllers
             {
                 return NotFound();
             }
-            return View(identityResource);
+            return View(identityResource.MapTo<IdentityResourceViewModel>());
         }
 
-        // POST: IdentityResources/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Enabled,Name,DisplayName,Description,Required,Emphasize,ShowInDiscoveryDocument")] IdentityResource identityResource)
+        public async Task<IActionResult> Edit(int id, IdentityResourceViewModel identityResourceVM)
         {
-            if (id != identityResource.Id)
+            if (id != identityResourceVM.Id)
             {
                 return NotFound();
             }
@@ -97,12 +91,12 @@ namespace IdentityServerManager.UI.Controllers
             {
                 try
                 {
-                    _context.Update(identityResource);
+                    _context.Update(identityResourceVM.MapTo<IdentityResource>());
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!IdentityResourceExists(identityResource.Id))
+                    if (!IdentityResourceExists(identityResourceVM.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +107,9 @@ namespace IdentityServerManager.UI.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(identityResource);
+            return View(identityResourceVM);
         }
 
-        // GET: IdentityResources/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,10 +124,9 @@ namespace IdentityServerManager.UI.Controllers
                 return NotFound();
             }
 
-            return View(identityResource);
+            return View(identityResource.MapTo<IdentityResourceViewModel>());
         }
 
-        // POST: IdentityResources/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

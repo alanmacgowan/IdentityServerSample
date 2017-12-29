@@ -4,12 +4,11 @@ using IdentityServerManager.UI.Models;
 
 namespace IdentityServerManager.UI.Infrastructure
 {
-
-    public class ClientsMappingProfile : Profile
+    public class IdentityResourcesMappingProfile : Profile
     {
-        public ClientsMappingProfile()
+        public IdentityResourcesMappingProfile()
         {
-            CreateMap<Client, ClientViewModel>().ReverseMap();
+            CreateMap<IdentityResource, IdentityResourceViewModel>().ReverseMap();
         }
     }
 }
