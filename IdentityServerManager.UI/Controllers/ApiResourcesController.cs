@@ -111,23 +111,6 @@ namespace IdentityServerManager.UI.Controllers
             return View(apiResourceVM);
         }
 
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var apiResource = await _context.ApiResources
-                .SingleOrDefaultAsync(m => m.Id == id);
-            if (apiResource == null)
-            {
-                return NotFound();
-            }
-
-            return View(apiResource.MapTo<ApiResourceViewModel>());
-        }
-
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -135,7 +118,7 @@ namespace IdentityServerManager.UI.Controllers
             var apiResource = await _context.ApiResources.SingleOrDefaultAsync(m => m.Id == id);
             _context.ApiResources.Remove(apiResource);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), new { SuccessMessage = "Api Resource successfully deleted." });
         }
 
         private bool ApiResourceExists(int id)
