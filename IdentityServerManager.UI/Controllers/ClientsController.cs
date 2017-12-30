@@ -42,7 +42,7 @@ namespace IdentityServerManager.UI.Controllers
                 return NotFound();
             }
 
-            return View(client.MapTo<ClientViewModel>());
+            return await Task.FromResult(PartialView("_details", client.MapTo<ClientViewModel>()));
         }
 
         public IActionResult Create()

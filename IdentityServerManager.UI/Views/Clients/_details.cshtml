@@ -1,0 +1,120 @@
+﻿@model IdentityServerManager.UI.Models.ClientViewModel
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Enabled)
+            </dt>
+            <dd>
+                <i class="ti-@(Model.Enabled ? "check text-success" :  "close text-danger")"></i>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ClientId)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ClientId)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ProtocolType)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ProtocolType)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RequireClientSecret)
+            </dt>
+            <dd>
+                <i class="ti-@(Model.RequireClientSecret ? "check text-success" :  "close text-danger")"></i>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ClientName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ClientName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ClientUri)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ClientUri)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.LogoUri)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LogoUri)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.RequireConsent)
+            </dt>
+            <dd>
+                <i class="ti-@(Model.RequireConsent ? "check text-success" :  "close text-danger")"></i>
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.AllowRememberConsent)
+            </dt>
+            <dd>
+                <i class="ti-@(Model.AllowRememberConsent ? "check text-success" :  "close text-danger")"></i>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AlwaysIncludeUserClaimsInIdToken)
+            </dt>
+            <dd>
+                <i class="ti-@(Model.AlwaysIncludeUserClaimsInIdToken ? "check text-success" :  "close text-danger")"></i>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AllowAccessTokensViaBrowser)
+            </dt>
+            <dd>
+                <i class="ti-@(Model.AllowAccessTokensViaBrowser ? "check text-success" :  "close text-danger")"></i>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AllowOfflineAccess)
+            </dt>
+            <dd>
+                <i class="ti-@(Model.AllowOfflineAccess ? "check text-success" :  "close text-danger")"></i>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IdentityTokenLifetime)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IdentityTokenLifetime)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AccessTokenLifetime)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AccessTokenLifetime)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.EnableLocalLogin)
+            </dt>
+            <dd>
+                <i class="ti-@(Model.EnableLocalLogin ? "check text-success" :  "close text-danger")"></i>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AlwaysSendClientClaims)
+            </dt>
+            <dd>
+                <i class="ti-@(Model.AlwaysSendClientClaims ? "check text-success" :  "close text-danger")"></i>
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ClientClaimsPrefix)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ClientClaimsPrefix)
+            </dd>
+        </dl>
+    </div>
+</div>
