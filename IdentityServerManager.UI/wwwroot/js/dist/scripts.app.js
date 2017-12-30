@@ -43,3 +43,22 @@ function deleteItem(id) {
         }]
     });
 };
+
+function showDetails(id, module) {
+    $.ajax({ url: '/' + module + '/Details/' + id })
+        .done(function (response) {
+            if (response) {
+                BootstrapDialog.show({
+                    title: 'Details',
+                    message: $('<div></div>').html(response),
+                    buttons: [{
+                        label: 'Close',
+                        cssClass: 'btn-primary',
+                        action: function (dialog) {
+                            dialog.close();
+                        }
+                    }]
+                });
+            }
+        });
+};

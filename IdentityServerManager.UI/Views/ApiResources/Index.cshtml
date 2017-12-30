@@ -43,7 +43,7 @@
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-icon" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
-                            <a href="javascript:void(0)" onclick="showDetails(@item.Id)" class="btn btn-primary btn-icon" data-toggle="tooltip" title="Details"><i class="fa fa-bars"></i></a>
+                            <a href="javascript:void(0)" onclick="showDetails(@item.Id, 'ApiResources')" class="btn btn-primary btn-icon" data-toggle="tooltip" title="Details"><i class="fa fa-bars"></i></a>
                             <a href="javascript:void(0)" onclick="deleteItem(@item.Id)" class="btn btn-danger btn-icon" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
                     </tr>
@@ -57,29 +57,3 @@
     <input type="hidden" name="Id" id="Id" />
 </form>
 
-@section scripts{
-
-    <script type="text/javascript">
-
-        function showDetails(id) {
-            $.ajax({ url: '/ApiResources/Details/' + id })
-                .done(function (response) {
-                    if (response) {
-                        BootstrapDialog.show({
-                            title: 'Details',
-                            message: $('<div></div>').html(response),
-                            buttons: [{
-                                label: 'Close',
-                                cssClass: 'btn-primary',
-                                action: function (dialog) {
-                                    dialog.close();
-                                }
-                            }]
-                        });
-                    }
-                });
-        };
-
-    </script>
-
-}

@@ -1,16 +1,12 @@
 ﻿@model IdentityServerManager.UI.Models.IdentityResourceViewModel
 
-@{
-    ViewData["Title"] = " Identity Resource Details";
-}
-
 <div>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Enabled)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Enabled)
+            <i class="ti-@(Model.Enabled ? "check text-success" :  "close text-danger")"></i>
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -34,23 +30,20 @@
             @Html.DisplayNameFor(model => model.Required)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Required)
+            <i class="ti-@(Model.Required ? "check text-success" :  "close text-danger")"></i>
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Emphasize)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Emphasize)
+            <i class="ti-@(Model.Emphasize ? "check text-success" :  "close text-danger")"></i>
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ShowInDiscoveryDocument)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.ShowInDiscoveryDocument)
+            <i class="ti-@(Model.ShowInDiscoveryDocument ? "check text-success" :  "close text-danger")"></i>
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+

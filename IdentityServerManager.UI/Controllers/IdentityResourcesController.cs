@@ -43,7 +43,7 @@ namespace IdentityServerManager.UI.Controllers
                 return NotFound();
             }
 
-            return View(identityResource.MapTo<IdentityResourceViewModel>());
+            return await Task.FromResult(PartialView("_details", identityResource.MapTo<IdentityResourceViewModel>()));
         }
 
         public IActionResult Create()
@@ -112,7 +112,7 @@ namespace IdentityServerManager.UI.Controllers
         }
 
         [HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var identityResource = await _context.IdentityResources.SingleOrDefaultAsync(m => m.Id == id);
