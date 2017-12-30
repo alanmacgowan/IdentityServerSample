@@ -4,10 +4,19 @@ $(document).ready(function () {
 
     if (successMessage != "" && successMessage != undefined ) {
         $.notify({
-            icon: 'ti-user',
+            title: 'Success',
+            icon: 'fa fa-check',
             message: successMessage
         }, { type: 'success', timer: 2000 });
     }
+
+    $('form').bind('invalid-form.validate', function () {
+        $.notify({
+            title: 'Warning',
+            icon: 'fa fa-exclamation-triangle',
+            message: 'There are invalid fields.'
+        }, { type: 'warning', timer: 2000 });
+    });
 
 });
 

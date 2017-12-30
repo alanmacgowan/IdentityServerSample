@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static IdentityServer4.IdentityServerConstants;
 
 namespace IdentityServerManager.UI.Controllers
 {
@@ -46,7 +47,14 @@ namespace IdentityServerManager.UI.Controllers
 
         public IActionResult Create()
         {
-            return View(new ClientViewModel());
+            var clientVM = new ClientViewModel
+            {
+                IdentityProtocolTypes = new List<string> {
+                    ProtocolTypes.OpenIdConnect,
+                    ProtocolTypes.Saml2p,
+                    ProtocolTypes.WsFederation }
+            };
+            return View(clientVM);
         }
 
         [HttpPost]
@@ -74,7 +82,12 @@ namespace IdentityServerManager.UI.Controllers
             {
                 return NotFound();
             }
-            return View(client.MapTo<ClientViewModel>());
+            var clientVM = client.MapTo<ClientViewModel>();
+            clientVM.IdentityProtocolTypes = new List<string> {
+                    ProtocolTypes.OpenIdConnect,
+                    ProtocolTypes.Saml2p,
+                    ProtocolTypes.WsFederation };
+            return View(clientVM);
         }
 
         [HttpPost]

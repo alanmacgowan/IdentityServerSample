@@ -95,5 +95,7 @@ namespace IdentityServerManager.UI.Models
         public string PairWiseSubjectSalt { get; set; }
         public List<ClientCorsOrigin> AllowedCorsOrigins { get; set; }
         public List<ClientProperty> Properties { get; set; }
+        public List<string> IdentityProtocolTypes { get; set; }
+
     }
 }
