@@ -1,14 +1,11 @@
 ﻿@model IdentityServerManager.UI.Models.ApiResourceViewModel
-@{
-    ViewData["Title"] = "Api Resource Detail";
-}
 <div>
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Enabled)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Enabled)
+            <i class="ti-@(Model.Enabled ? "check text-success" :  "close text-danger")"></i>
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Name)
@@ -30,7 +27,4 @@
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+

@@ -42,8 +42,7 @@ namespace IdentityServerManager.UI.Controllers
             {
                 return NotFound();
             }
-
-            return View(apiResource.MapTo<ApiResourceViewModel>());
+            return await Task.FromResult(PartialView("_details", apiResource.MapTo<ApiResourceViewModel>()));
         }
 
         public IActionResult Create()
