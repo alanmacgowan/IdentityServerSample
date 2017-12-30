@@ -18,6 +18,8 @@ $(document).ready(function () {
         }, { type: 'warning', timer: 2000 });
     });
 
+    $('[data-toggle="tooltip"]').tooltip();
+
 });
 
 function deleteItem(id) {

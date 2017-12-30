@@ -4,68 +4,68 @@
 @{
     ViewData["Title"] = "Clients List";
 }
-<br />
 <p>
     <a asp-action="Create" class="btn btn-primary"><i class="ti-plus"></i> Create New</a>
 </p>
-<div class="content table-responsive table-full-width">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Enabled)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClientId)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClientName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RequireConsent)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.AllowAccessTokensViaBrowser)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClientClaimsPrefix)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+<div class="card">
+    <div class="content table-responsive table-full-width">
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td class="text-center">
-                        <i class="ti-@(item.Enabled ? "check text-success" :  "close text-danger")"></i>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClientId)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClientName)
-                    </td>
-                    <td class="text-center">
-                        <i class="ti-@(item.RequireConsent ? "check text-success" :  "close text-danger")"></i>
-                    </td>
-                    <td class="text-center">
-                        <i class="ti-@(item.AllowOfflineAccess ? "check text-success" :  "close text-danger")"></i>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClientClaimsPrefix)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-icon"><i class="fa fa-pencil"></i></a>
-                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-icon"><i class="fa fa-bars"></i></a>
-                        <a href="javascript:void(0)" onclick="deleteItem(@item.Id)" class="btn btn-danger btn-icon"><i class="fa fa-trash"></i></a>
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Enabled)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClientId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClientName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequireConsent)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AllowAccessTokensViaBrowser)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ClientClaimsPrefix)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="text-center">
+                            <i class="ti-@(item.Enabled ? "check text-success" :  "close text-danger")"></i>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClientId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClientName)
+                        </td>
+                        <td class="text-center">
+                            <i class="ti-@(item.RequireConsent ? "check text-success" :  "close text-danger")"></i>
+                        </td>
+                        <td class="text-center">
+                            <i class="ti-@(item.AllowOfflineAccess ? "check text-success" :  "close text-danger")"></i>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ClientClaimsPrefix)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success btn-icon" data-toggle="tooltip" title="Edit"><i class="fa fa-pencil"></i></a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-icon" data-toggle="tooltip" title="Details"><i class="fa fa-bars"></i></a>
+                            <a href="javascript:void(0)" onclick="deleteItem(@item.Id)" class="btn btn-danger btn-icon" data-toggle="tooltip" title="Delete"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
-
+    </div>
 </div>
 
 <form id="deleteForm" name="deleteForm" asp-action="Delete">
