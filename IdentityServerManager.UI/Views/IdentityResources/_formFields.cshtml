@@ -10,17 +10,17 @@
 </div>
 <div class="form-group">
     <label asp-for="Name" class="control-label"></label>
-    <input asp-for="Name" class="form-control" />
+    <input asp-for="Name" class="form-control border-input" />
     <span asp-validation-for="Name" class="text-danger"></span>
 </div>
 <div class="form-group">
     <label asp-for="DisplayName" class="control-label"></label>
-    <input asp-for="DisplayName" class="form-control" />
+    <input asp-for="DisplayName" class="form-control border-input" />
     <span asp-validation-for="DisplayName" class="text-danger"></span>
 </div>
 <div class="form-group">
     <label asp-for="Description" class="control-label"></label>
-    <textarea asp-for="Description" class="form-control"></textarea>
+    <textarea asp-for="Description" class="form-control border-input"></textarea>
     <span asp-validation-for="Description" class="text-danger"></span>
 </div>
 <div class="form-group">
@@ -44,7 +44,8 @@
         </label>
     </div>
 </div>
-<div class="form-group">
-    <input type="submit" value="Create" class="btn btn-success" />
+<hr />
+<div class="form-group pull-right">
+    <input type="submit" value="Save" class="btn btn-success" />
     <a asp-action="Index" class="btn btn-danger">Cancel</a>
 </div>
